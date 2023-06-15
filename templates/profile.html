@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Instagram Profile</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/profile.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Instagram Profile</h1>
+    <form action="/profile" method="get">
+      <label for="username">Enter Username:</label>
+      <input type="text" id="username" name="username" required />
+      <br />
+      <button type="submit">Go to Profile</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/scrap.css') }}"
+    />
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='script/scripts.js')}}"
+    ></script>
+    <title>Scrap Photos</title>
+  </head>
+  <body>
+    <h1>Scrap Photos</h1>
+    <form id="scrapForm">
+      <button type="submit">Scrap the Photos</button>
+    </form>
+
+    <script>
+      document
+        .getElementById("scrapForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form submission
+
+          // Make an AJAX request to call the '/scrap_photos' endpoint
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/scrap_photos");
+          xhr.setRequestHeader("Content-Type", "application/json");
+
+          xhr.onload = function () {
+            if (xhr.status === 200) {
+              var message = document.createElement("h1");
+              message.innerHTML = "Scraping photos successful";
+              document.body.appendChild(message);
+            } else {
+              var message = document.createElement("h1");
+              message.innerHTML = "Scraping photos failed";
+              document.body.appendChild(message);
+            }
+          };
+
+          xhr.send();
+        });
+    </script>
+  </body>
+</html>

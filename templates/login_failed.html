@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Failed</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/login_failed.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Login Failed</h1>
+    <p>An error occurred while trying to log in:</p>
+    <p>{{ error }}</p>
+    <form action="/" method="get">
+      <button type="submit">Go back to Login</button>
+    </form>
+  </body>
+</html>

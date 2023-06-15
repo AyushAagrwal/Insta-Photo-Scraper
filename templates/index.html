@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Instagram Login</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+    />
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='script/scripts.js')}}"
+    ></script>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="../static/img/logo.png" alt="" />
+      </div>
+      <ul class="navbar">
+        <!-- <li><a href="#">Home</a></li> -->
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <!-- <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li> -->
+      </ul>
+    </nav>
+    <div class="login-box">
+      <h1>Login to Instagram</h1>
+      <div class="login-form">
+        <form action="/login" method="post">
+          <label for="username"></label>
+          <input type="text" id="username" name="username" required /
+          placeholder="Username">
+          <br />
+          <label for="password"></label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            placeholder="Password"
+          />
+          <br />
+          <input type="submit" value="Login" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
